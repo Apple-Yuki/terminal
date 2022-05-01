@@ -628,10 +628,6 @@ bool Renderer::IsGlyphWideByFont(const std::wstring_view glyph)
 // - <none>
 void Renderer::EnablePainting()
 {
-    // When the renderer is constructed, the initial viewport won't be available yet,
-    // but once EnablePainting is called it should be safe to retrieve.
-    _viewport = _pData->GetViewport();
-
     // When running the unit tests, we may be using a render without a render thread.
     if (_pThread)
     {
